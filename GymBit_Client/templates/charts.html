@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% load static %}
+            <div>
+                <div class="row">
+                    <div class="col-12 d-flex no-block align-items-center">
+                        <h4 class="page-title">All Statistics</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div id="chart-container">FusionCharts will render here</div>
+    {% endblock content %}
+    {% block js %}
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <!-- Chart js -->
+    <script src="{% static 'assets/libs/jquery/dist/jquery.min.js' %}"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="{% static 'assets/libs/popper.js/dist/umd/popper.min.js' %}"></script>
+    <script src="{% static 'assets/libs/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="{% static 'assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js' %}"></script>
+    <script src="{% static 'assets/extra-libs/sparkline/sparkline.js' %}"></script>
+    <!--Wave Effects -->
+    <script src="{% static 'dist/js/waves.js' %}"></script>
+    <!--Menu sidebar -->
+    <script src="{% static 'dist/js/sidebarmenu.js' %}"></script>
+    <!--Custom JavaScript -->
+    <script src="{% static 'dist/js/custom.min.js' %}"></script>
+    <!-- this page js -->
+    <script src="{% static 'assets/libs/chart/matrix.interface.js' %}"></script>
+    <script src="{% static 'assets/libs/chart/excanvas.min.js' %}"></script>
+    <script src="{% static 'assets/libs/flot/jquery.flot.js' %}"></script>
+    <script src="{% static 'assets/libs/flot/jquery.flot.pie.js' %}"></script>
+    <script src="{% static 'assets/libs/flot/jquery.flot.time.js' %}"></script>
+    <script src="{% static 'assets/libs/flot/jquery.flot.stack.js' %}"></script>
+    <script src="{% static 'assets/libs/flot/jquery.flot.crosshair.js' %}"></script>
+    <script src="{% static 'assets/libs/chart/jquery.peity.min.js' %}"></script>
+    <script src="{% static 'assets/libs/chart/matrix.charts.js' %}"></script>
+    <script src="{% static 'assets/libs/chart/jquery.flot.pie.min.js' %}"></script>
+    <script src="{% static 'assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js' %}"></script>
+    <script src="{% static 'assets/libs/chart/turning-series.js' %}"></script>
+    <script src="{% static 'dist/js/pages/chart/chart-page-init.js' %}"></script>
+    <script>FusionCharts.ready(function() {
+          var visitChart = new FusionCharts({
+            type: 'line',
+            renderAt: 'chart-container',
+            width: '1400',
+            height: '500',
+            dataFormat: 'json',
+            dataSource: {
+              "chart": {
+                "theme": "fusion",
+                "caption": "Bits",
+                "subCaption": "Bit",
+                "xAxisName": "Time",
+                "yAxisName": "Value",
+                "lineThickness": "1"
+              },
+              "data": {{ work|safe }},
+            }
+          });
+
+          visitChart.render();
+        });</script>
+    {% endblock js %}
