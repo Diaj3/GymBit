@@ -1,4 +1,4 @@
-# -GymBit
+# GymBit
 
 Temas: Monitorização de componentes estatísticos de saúde de indivíduos enquanto os mesmos fazem exercício físico.
 
