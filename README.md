@@ -1,6 +1,4 @@
-# IES-89265-89251-89236-88864
-
-## Nome: GymBit
+# -GymBit
 
 Temas: Monitorização de componentes estatísticos de saúde de indivíduos enquanto os mesmos fazem exercício físico.
 
